@@ -22,6 +22,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/Montserrat-Regular.ttf", 
+          "./assets/fonts/Ubuntu-Regular.ttf", "./assets/fonts/MochiyPopOne-Regular.ttf"]
+        }
+      ]
+    ]
   }
 }
