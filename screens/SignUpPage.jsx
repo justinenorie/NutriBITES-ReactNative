@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
 import Colors from "../constants/Colors";
 import InputLayout from "../components/InputLayout";
 import ButtonStyle from "../components/ButtonStyle";
 
 export default function Login({ navigation }) {
-    const login = () => navigation.navigate("SignUp");
+    const signIn = () => navigation.navigate("Login");
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -19,7 +19,7 @@ export default function Login({ navigation }) {
                 </Text>
                 <Text
                     style={[
-                        { fontSize: 24, fontFamily: "MochiyPopOne-Regular" },
+                        { color: "#222488", fontSize: 30, fontFamily: "MochiyPopOne-Regular" },
                     ]}
                 >
                     HealthCheck
@@ -40,7 +40,7 @@ export default function Login({ navigation }) {
                     security={true}
                     iconName="eye"
                 />
-                
+
                 <InputLayout
                     placeholder="Confirm Password"
                     security={true}
@@ -49,7 +49,7 @@ export default function Login({ navigation }) {
 
                 <ButtonStyle
                     title={"Sign up"}
-                    onPress={login}
+                    onPress={signIn}
                     buttonstyle={{
                         borderWidth: 1,
                         borderColor: "black",
@@ -60,7 +60,22 @@ export default function Login({ navigation }) {
                 />
 
                 <View style={styles.haveAccount}>
-                    <Text>Already have an account? Sign in</Text>
+                    <Text>Already have an account? </Text>
+                    <TouchableOpacity
+                        onPress={signIn}
+                    >
+                        <Text
+                            style={[
+                                styles.textStyle,
+                                {
+                                    fontWeight: "bold",
+                                    textDecorationLine: "underline",
+                                },
+                            ]}
+                        >
+                            Sign In
+                        </Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </SafeAreaView>
@@ -83,6 +98,7 @@ const styles = StyleSheet.create({
     haveAccount: {
         marginTop: 24,
         color: Colors.TEXTblack,
-        alignItems: "center",
+        flexDirection: "row",
+        justifyContent: "center",
     },
 });

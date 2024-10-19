@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import {
+    View,
+    Text,
+    StyleSheet,
+    SafeAreaView,
+    TouchableOpacity,
+} from "react-native";
 import Colors from "../constants/Colors";
 import InputLayout from "../components/InputLayout";
 import ButtonStyle from "../components/ButtonStyle";
+import FacebookIcon from "../assets/icons/facebook.png";
+import GoogleIcon from "../assets/icons/google.png";
 
 export default function Login({ navigation }) {
-    const login = () => navigation.navigate("SignUp");
+    const signUp = () => navigation.navigate("SignUp");
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -19,7 +27,11 @@ export default function Login({ navigation }) {
                 </Text>
                 <Text
                     style={[
-                        { fontSize: 24, fontFamily: "MochiyPopOne-Regular" },
+                        {
+                            color: "#222488",
+                            fontSize: 30,
+                            fontFamily: "MochiyPopOne-Regular",
+                        },
                     ]}
                 >
                     HealthCheck
@@ -41,7 +53,7 @@ export default function Login({ navigation }) {
 
                 <ButtonStyle
                     title={"Sign in"}
-                    onPress={login}
+                    onPress={signUp}
                     buttonstyle={{
                         borderWidth: 1,
                         borderColor: "black",
@@ -51,31 +63,63 @@ export default function Login({ navigation }) {
                     fontsize={{ fontSize: 24 }}
                 />
 
-                <Text style={styles.forgotPassword}>Forgot Password?</Text>
+                <Text style={[styles.forgotPassword, styles.textStyle]}>
+                    Forgot Password?
+                </Text>
 
-                <Text style={styles.textStyle}>OR</Text>
+                <View
+                    style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        marginTop: 24,
+                    }}
+                >
+                    <View style={styles.line}></View>
+                    <Text
+                        style={[
+                            styles.textStyle,
+                            { fontSize: 24, paddingHorizontal: 8 },
+                        ]}
+                    >
+                        OR
+                    </Text>
+                    <View style={styles.line}></View>
+                </View>
 
                 <ButtonStyle
                     title={"Sign in with Facebook"}
-                    buttonstyle={{
-                        backgroundColor: "#AFCFF9",
-                        borderWidth: 1,
-                        borderColor: Colors.TEXTblack,
-                    }}
+                    image={FacebookIcon}
+                    buttonstyle={[
+                        { backgroundColor: "#AFCFF9" },
+                        styles.signInwithButton,
+                    ]}
                     fontsize={{ fontSize: 13 }}
                 />
                 <ButtonStyle
                     title={"Sign in with Google"}
-                    buttonstyle={{
-                        backgroundColor: "#E5E7EA",
-                        borderWidth: 1,
-                        borderColor: Colors.TEXTblack,
-                    }}
+                    image={GoogleIcon}
+                    buttonstyle={[
+                        { backgroundColor: "#E5E7EA" },
+                        styles.signInwithButton,
+                    ]}
                     fontsize={{ fontSize: 13 }}
                 />
 
                 <View style={styles.needAccount}>
-                    <Text>Don't have an account? SignUp</Text>
+                    <Text>Don't have an account? </Text>
+                    <TouchableOpacity onPress={signUp}>
+                        <Text
+                            style={[
+                                styles.textStyle,
+                                {
+                                    fontWeight: "bold",
+                                    textDecorationLine: "underline",
+                                },
+                            ]}
+                        >
+                            Sign Up
+                        </Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </SafeAreaView>
@@ -94,6 +138,7 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         color: Colors.TEXTblack,
+        fontFamily: "Ubuntu-Regular",
     },
     forgotPassword: {
         textAlign: "right",
@@ -103,6 +148,20 @@ const styles = StyleSheet.create({
     needAccount: {
         marginTop: 24,
         color: Colors.TEXTblack,
+        flexDirection: "row",
+        justifyContent: "center",
+    },
+    line: {
+        flex: 1,
+        height: 1,
+        backgroundColor: "#000",
+    },
+    signInwithButton: {
+        borderWidth: 1,
+        borderColor: Colors.TEXTblack,
+        paddingHorizontal: 16,
+        flexDirection: "row",
+        justifyContent: "flex-start",
         alignItems: "center",
     },
 });
