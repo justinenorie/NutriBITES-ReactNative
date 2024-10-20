@@ -7,6 +7,7 @@ import {
     TouchableOpacity,
 } from "react-native";
 import Colors from "../constants/Colors";
+import fonts from "../constants/Typography";
 import InputLayout from "../components/InputLayout";
 import ButtonStyle from "../components/ButtonStyle";
 import FacebookIcon from "../assets/icons/facebook.png";
@@ -20,20 +21,12 @@ export default function Login({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.loginContainer}>
-
                 <Text
-                    style={[{ fontSize: 24, fontFamily: "Montserrat-Regular" }]}>
+                    style={ fonts.title }>
                     Sign In with
                 </Text>
                 <Text
-                    style={[
-                        {
-                            color: "#222488",
-                            fontSize: 30,
-                            fontFamily: "MochiyPopOne-Regular",
-                        },
-                    ]}
-                >
+                    style={ fonts.logoName }>
                     HealthCheck
                 </Text>
 
@@ -60,10 +53,10 @@ export default function Login({ navigation }) {
                         alignItems: "center",
                         backgroundColor: Colors.PRIMARY,
                     }}
-                    fontsize={{ fontSize: 24 }}
+                    fontsize={ fonts.h1 }
                 />
 
-                <Text style={[styles.forgotPassword, styles.textStyle]}>
+                <Text style={[styles.forgotPassword, fonts.h2 ]}>
                     Forgot Password?
                 </Text>
 
@@ -77,7 +70,7 @@ export default function Login({ navigation }) {
                     <View style={styles.line}></View>
                     <Text
                         style={[
-                            styles.textStyle,
+                            fonts.h1,
                             { fontSize: 24, paddingHorizontal: 8 },
                         ]}
                     >
@@ -93,7 +86,7 @@ export default function Login({ navigation }) {
                         { backgroundColor: "#AFCFF9" },
                         styles.signInwithButton,
                     ]}
-                    fontsize={{ fontSize: 13 }}
+                    fontsize={ fonts.small }
                 />
                 <ButtonStyle
                     title={"Sign in with Google"}
@@ -102,15 +95,16 @@ export default function Login({ navigation }) {
                         { backgroundColor: "#E5E7EA" },
                         styles.signInwithButton,
                     ]}
-                    fontsize={{ fontSize: 13 }}
+                    fontsize={ fonts.small }
                 />
 
                 <View style={styles.needAccount}>
-                    <Text>Don't have an account? </Text>
+                    <Text style={ fonts.h2 }>Don't have an account? </Text>
                     <TouchableOpacity onPress={signUp}>
                         <Text
                             style={[
                                 styles.textStyle,
+                                fonts.h2,
                                 {
                                     fontWeight: "bold",
                                     textDecorationLine: "underline",
@@ -135,10 +129,6 @@ const styles = StyleSheet.create({
     loginContainer: {
         width: "100%",
         padding: 24,
-    },
-    textStyle: {
-        color: Colors.TEXTblack,
-        fontFamily: "Ubuntu-Regular",
     },
     forgotPassword: {
         textAlign: "right",

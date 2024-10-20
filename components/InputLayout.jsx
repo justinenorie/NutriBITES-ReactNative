@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import fonts from "../constants/Typography";
 import Colors from "../constants/Colors";
 import Icons from "react-native-vector-icons/Ionicons";
 
@@ -13,7 +14,7 @@ export default function InputText({ placeholder, security, iconName, value, onCh
     return (
         <View style={styles.container}>
             <TextInput 
-                style={styles.input}
+                style={[{flex: 1}, fonts.h2 ]}
                 placeholder={placeholder}
                 secureTextEntry={security && !isPasswordVisible}
                 value={value}
@@ -43,12 +44,6 @@ const styles = StyleSheet.create({
         marginTop: 24,
         width: '100%',
 
-    },
-    input: {
-        flex: 1,
-        fontFamily: "Ubuntu-Regular",
-        fontSize: 15,
-        color: Colors.TEXTblack,
     },
     icon: {
         padding: 10,

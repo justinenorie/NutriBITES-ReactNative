@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
+import fonts from "../constants/Typography";
 import Colors from "../constants/Colors";
 import InputLayout from "../components/InputLayout";
 import ButtonStyle from "../components/ButtonStyle";
@@ -13,26 +14,20 @@ export default function Login({ navigation }) {
         <SafeAreaView style={styles.container}>
             <View style={styles.loginContainer}>
                 <Text
-                    style={[{ fontSize: 24, fontFamily: "Montserrat-Regular" }]}
-                >
+                    style={ fonts.title }>
                     Sign up with
                 </Text>
                 <Text
-                    style={[
-                        { color: "#222488", fontSize: 30, fontFamily: "MochiyPopOne-Regular" },
-                    ]}
-                >
+                    style={ fonts.logoName }>
                     HealthCheck
                 </Text>
 
                 <InputLayout placeholder="Full Name" />
-
                 <InputLayout
                     placeholder="Username"
                     value={username}
                     onChangeText={setUsername}
                 />
-
                 <InputLayout
                     placeholder="Password"
                     value={password}
@@ -40,7 +35,6 @@ export default function Login({ navigation }) {
                     security={true}
                     iconName="eye"
                 />
-
                 <InputLayout
                     placeholder="Confirm Password"
                     security={true}
@@ -56,17 +50,17 @@ export default function Login({ navigation }) {
                         alignItems: "center",
                         backgroundColor: Colors.PRIMARY,
                     }}
-                    fontsize={{ fontSize: 24 }}
+                    fontsize={fonts.h1}
                 />
 
                 <View style={styles.haveAccount}>
-                    <Text>Already have an account? </Text>
+                    <Text style={fonts.h2}>Already have an account? </Text>
                     <TouchableOpacity
                         onPress={signIn}
                     >
                         <Text
                             style={[
-                                styles.textStyle,
+                                fonts.h2,
                                 {
                                     fontWeight: "bold",
                                     textDecorationLine: "underline",
@@ -91,9 +85,6 @@ const styles = StyleSheet.create({
     loginContainer: {
         width: "100%",
         padding: 24,
-    },
-    textStyle: {
-        color: Colors.TEXTblack,
     },
     haveAccount: {
         marginTop: 24,
