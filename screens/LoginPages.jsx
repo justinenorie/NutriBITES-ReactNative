@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
     View,
     Text,
@@ -20,9 +20,9 @@ export default function Login({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.loginContainer}>
+
                 <Text
-                    style={[{ fontSize: 24, fontFamily: "Montserrat-Regular" }]}
-                >
+                    style={[{ fontSize: 24, fontFamily: "Montserrat-Regular" }]}>
                     Sign In with
                 </Text>
                 <Text
