@@ -5,29 +5,38 @@ import {
     StyleSheet,
     SafeAreaView,
     TouchableOpacity,
+    Image,
 } from "react-native";
 import Colors from "../constants/Colors";
 import fonts from "../constants/Typography";
 import InputLayout from "../components/InputLayout";
 import ButtonStyle from "../components/ButtonStyle";
-import FacebookIcon from "../assets/icons/facebook.png";
 import GoogleIcon from "../assets/icons/google.png";
+import logo from "../assets/HealthLogo.png";
 
 export default function Login({ navigation }) {
     const signUp = () => navigation.navigate("SignUp");
+    const dashboard = () => navigation.navigate("Dashboard");
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.loginContainer}>
-                <Text
-                    style={ fonts.title }>
-                    Sign In with
-                </Text>
-                <Text
-                    style={ fonts.logoName }>
-                    HealthCheck
+                <View style={styles.title}>
+                    <Text style={[fonts.logoName, { fontSize: 50 }]}>
+                        Nutri
+                        <Text style={[fonts.logoName, { fontSize: 38 }]}>
+                            BITES
+                        </Text>
+                    </Text>
+                    <Image
+                        source={logo}
+                        style={{ width: 50, height: 50, marginHorizontal: 2 }}
+                    />
+                </View>
+                <Text style={[fonts.title, { textAlign: "center" }]}>
+                    Sign in to your Account
                 </Text>
 
                 <InputLayout
@@ -45,18 +54,18 @@ export default function Login({ navigation }) {
                 />
 
                 <ButtonStyle
-                    title={"Sign in"}
-                    onPress={signUp}
+                    title={"SIGN IN"}
+                    onPress={dashboard}
                     buttonstyle={{
                         borderWidth: 1,
                         borderColor: "black",
                         alignItems: "center",
                         backgroundColor: Colors.PRIMARY,
                     }}
-                    fontsize={ fonts.h1 }
+                    fontsize={[fonts.h1, { fontWeight: 'bold' }]}
                 />
 
-                <Text style={[styles.forgotPassword, fonts.h2 ]}>
+                <Text style={[styles.forgotPassword, fonts.h2]}>
                     Forgot Password?
                 </Text>
 
@@ -70,7 +79,7 @@ export default function Login({ navigation }) {
                     <View style={styles.line}></View>
                     <Text
                         style={[
-                            fonts.h1,
+                            fonts.h2,
                             { fontSize: 24, paddingHorizontal: 8 },
                         ]}
                     >
@@ -80,26 +89,17 @@ export default function Login({ navigation }) {
                 </View>
 
                 <ButtonStyle
-                    title={"Sign in with Facebook"}
-                    image={FacebookIcon}
-                    buttonstyle={[
-                        { backgroundColor: "#AFCFF9" },
-                        styles.signInwithButton,
-                    ]}
-                    fontsize={ fonts.small }
-                />
-                <ButtonStyle
                     title={"Sign in with Google"}
                     image={GoogleIcon}
                     buttonstyle={[
                         { backgroundColor: "#E5E7EA" },
                         styles.signInwithButton,
                     ]}
-                    fontsize={ fonts.small }
+                    fontsize={fonts.small}
                 />
 
                 <View style={styles.needAccount}>
-                    <Text style={ fonts.h2 }>Don't have an account? </Text>
+                    <Text style={fonts.h2}>Don't have an account? </Text>
                     <TouchableOpacity onPress={signUp}>
                         <Text
                             style={[
@@ -108,6 +108,7 @@ export default function Login({ navigation }) {
                                 {
                                     fontWeight: "bold",
                                     textDecorationLine: "underline",
+                                    color: Colors.ACCENT,
                                 },
                             ]}
                         >
@@ -153,5 +154,10 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "flex-start",
         alignItems: "center",
+    },
+    title: {
+        flexDirection: "row",
+        justifyContent: "center",
+        marginVertical: 12,
     },
 });

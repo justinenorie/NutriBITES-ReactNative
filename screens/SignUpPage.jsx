@@ -1,9 +1,17 @@
 import { useState } from "react";
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
+import {
+    View,
+    Text,
+    StyleSheet,
+    SafeAreaView,
+    TouchableOpacity,
+    Image,
+} from "react-native";
 import fonts from "../constants/Typography";
 import Colors from "../constants/Colors";
 import InputLayout from "../components/InputLayout";
 import ButtonStyle from "../components/ButtonStyle";
+import logo from "../assets/HealthLogo.png";
 
 export default function Login({ navigation }) {
     const signIn = () => navigation.navigate("Login");
@@ -13,14 +21,20 @@ export default function Login({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.loginContainer}>
-                <Text
-                    style={ fonts.title }>
-                    Sign up with
-                </Text>
-                <Text
-                    style={ fonts.logoName }>
-                    HealthCheck
-                </Text>
+                <Text style={fonts.title}>Sign up with</Text>
+                {/* Title */}
+                <View style={styles.title}>
+                    <Text style={[fonts.logoName, { fontSize: 50 }]}>
+                        Nutri
+                        <Text style={[fonts.logoName, { fontSize: 38 }]}>
+                            BITES
+                        </Text>
+                    </Text>
+                    <Image
+                        source={logo}
+                        style={{ width: 50, height: 50, marginHorizontal: 2 }}
+                    />
+                </View>
 
                 <InputLayout placeholder="Full Name" />
                 <InputLayout
@@ -42,7 +56,7 @@ export default function Login({ navigation }) {
                 />
 
                 <ButtonStyle
-                    title={"Sign up"}
+                    title={"SIGN UP"}
                     onPress={signIn}
                     buttonstyle={{
                         borderWidth: 1,
@@ -50,20 +64,19 @@ export default function Login({ navigation }) {
                         alignItems: "center",
                         backgroundColor: Colors.PRIMARY,
                     }}
-                    fontsize={fonts.h1}
+                    fontsize={[fonts.h1, { fontWeight: 'bold' }]}
                 />
 
                 <View style={styles.haveAccount}>
                     <Text style={fonts.h2}>Already have an account? </Text>
-                    <TouchableOpacity
-                        onPress={signIn}
-                    >
+                    <TouchableOpacity onPress={signIn}>
                         <Text
                             style={[
                                 fonts.h2,
                                 {
                                     fontWeight: "bold",
                                     textDecorationLine: "underline",
+                                    color: Colors.ACCENT,
                                 },
                             ]}
                         >
@@ -91,5 +104,8 @@ const styles = StyleSheet.create({
         color: Colors.TEXTblack,
         flexDirection: "row",
         justifyContent: "center",
+    },
+    title: {
+        flexDirection: "row",
     },
 });
