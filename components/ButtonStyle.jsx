@@ -13,7 +13,7 @@ export default function InputText({title, onPress, buttonstyle, fontsize, image}
 
 const styles = StyleSheet.create({
     button: {    
-        height: 40,
+        height: 45,
         borderRadius: 15,
         justifyContent: 'center',
         marginTop: 24,
