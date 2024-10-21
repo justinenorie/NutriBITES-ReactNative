@@ -25,11 +25,7 @@
     },
     "plugins": [
       [
-        "expo-font",
-        {
-          "fonts": ["./assets/fonts/Montserrat-Regular.ttf", 
-          "./assets/fonts/Ubuntu-Regular.ttf", "./assets/fonts/MochiyPopOne-Regular.ttf"]
-        }
+        "expo-font"
       ]
     ]
   }
