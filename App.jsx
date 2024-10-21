@@ -6,7 +6,9 @@ import { ActivityIndicator, View } from 'react-native';
 export default function App() {
     const [fontsLoaded] = useFonts({
         'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
+        'Poppins-Bold': require('./assets/fonts/Poppins-Bold.ttf'),
         'Quicksand-Regular': require('./assets/fonts/Quicksand-Regular.ttf'),
+        'Quicksand-Bold': require('./assets/fonts/Quicksand-Bold.ttf'),
         'MochiyPopOne-Regular' : require('./assets/fonts/MochiyPopOne-Regular.ttf')
     });
 
