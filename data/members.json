@@ -2,32 +2,37 @@
     {
         "id": 1,
         "name": "Justine Norie B. Dela Cruz",
-        "assign": "Frontend Developer, UI/UX Designer"
+        "assign": "Frontend Developer, UI/UX Designer",
+        "picture" : "noriePic"
     },
     {
         "id": 2,
         "name": "Justine Norie B. Dela Cruz",
-        "assign": "User Persona"
+        "assign": "User Persona",
+        "picture" : "noriePic"
     },
     {
         "id": 3,
         "name": "Justine Norie B. Dela Cruz",
-        "assign": "Typography Styling"
+        "assign": "Typography Styling",
+        "picture" : "noriePic"
     },
     {
         "id": 4,
         "name": "Justine Norie B. Dela Cruz",
-        "assign": "Color Theory Styling"
+        "assign": "Color Theory Styling",
+        "picture" : "noriePic"
     },
     {
         "id": 5,
         "name": "Justine Norie B. Dela Cruz",
-        "assign": "Spacing"
-    }
-    ,
+        "assign": "Spacing",
+        "picture" : "noriePic"
+    },
     {
         "id": 6,
         "name": "Justine Norie B. Dela Cruz",
-        "assign": "UI/UX Designer"
+        "assign": "UI/UX Designer",
+        "picture" : "noriePic"
     }
 ]
