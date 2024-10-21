@@ -9,7 +9,7 @@ import {
     TouchableOpacity
 } from "react-native";
 import { useState } from "react";
-import data from "../data/members.json";
+import data from "../data/membersData.js";
 import Cards from "../components/MemberCard";
 import Colors from "../constants/Colors";
 import fonts from "../constants/Typography";
@@ -81,7 +81,7 @@ export default function Login({ navigation }) {
                                             borderRadius: 40,
                                         }}
                                     />
-                                    <View style={{ paddingHorizontal: 8 }}>
+                                    <View style={{ paddingHorizontal: 8, flexWrap: "wrap", flex: 1 }}>
                                         <Text style={[fonts.h1, { fontFamily: "Quicksand-Bold" }]}>
                                             {selectedMember.name}
                                         </Text>
@@ -130,9 +130,9 @@ const styles = StyleSheet.create({
     },
     modalContainer: {
         backgroundColor: Colors.PRIMARY,
+        marginHorizontal: 24,
         paddingHorizontal: 24,
         borderRadius: 27,
-        alignItems: "center",
     },
     modalTitle: {
         marginVertical: 24,
@@ -144,8 +144,7 @@ const styles = StyleSheet.create({
         borderRadius: 27,
         marginVertical: 24,
         paddingVertical: 12,
-        paddingHorizontal: 44,
+        marginHorizontal: 24,
         alignItems: "center",
-        
     }
 });
