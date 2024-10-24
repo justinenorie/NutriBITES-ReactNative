@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
     View,
     Text,
@@ -41,7 +40,6 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                             concentration and performance.
                         </Text>
                     </View>
-                    
                 </View>
 
                 <View style={styles.BLDContainer}>
@@ -68,9 +66,11 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
             </ScrollView>
 
             <StatusBar backgroundColor={Colors.BACKGROUND} />
-            <Menu navigation={navigation}
+            <Menu
+                navigation={navigation}
                 activeState={activeState}
-                setActiveState={setActiveState} />
+                setActiveState={setActiveState}
+            />
         </SafeAreaView>
     );
 }
@@ -92,6 +92,11 @@ const styles = StyleSheet.create({
     BLDContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
+        width: "100%",
+        backgroundColor: "#D2D4DF",
         marginTop: 24,
+        padding: 12,
+        borderRadius: 20,
+        borderWidth: 1,
     },
 });

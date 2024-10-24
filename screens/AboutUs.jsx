@@ -6,7 +6,7 @@ import {
     Image,
     ScrollView,
     Modal,
-    TouchableOpacity
+    TouchableOpacity,
 } from "react-native";
 import { useState } from "react";
 import data from "../data/membersData.js";
@@ -81,20 +81,45 @@ export default function Login({ navigation }) {
                                             borderRadius: 40,
                                         }}
                                     />
-                                    <View style={{ paddingHorizontal: 12, flex: 1, flexWrap: "nowrap" }}>
-                                        <Text style={[fonts.h1, { fontFamily: "Quicksand-Bold" }]}>
+                                    <View
+                                        style={{
+                                            paddingHorizontal: 12,
+                                            flex: 1,
+                                            flexWrap: "nowrap",
+                                        }}
+                                    >
+                                        <Text
+                                            style={[
+                                                fonts.h1,
+                                                {
+                                                    fontFamily:
+                                                        "Quicksand-Bold",
+                                                },
+                                            ]}
+                                        >
                                             {selectedMember.name}
                                         </Text>
-                                        <Text style={[fonts.small, { fontFamily: "Quicksand-Regular", }]}>
+                                        <Text
+                                            style={[
+                                                fonts.small,
+                                                {
+                                                    fontFamily:
+                                                        "Quicksand-Regular",
+                                                },
+                                            ]}
+                                        >
                                             {selectedMember.assign}
                                         </Text>
                                     </View>
                                 </View>
 
-                                <Text style={ [fonts.small] }>
+                                <Text style={[fonts.small]}>
                                     {selectedMember.description}
                                 </Text>
-                                <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
+                                <TouchableOpacity
+                                    style={styles.closeButton}
+                                    onPress={closeModal}
+                                >
                                     <Text style={fonts.h2White}>Close</Text>
                                 </TouchableOpacity>
                             </>
@@ -146,5 +171,5 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         marginHorizontal: 24,
         alignItems: "center",
-    }
+    },
 });
