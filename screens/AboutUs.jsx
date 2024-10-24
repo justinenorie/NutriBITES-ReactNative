@@ -81,11 +81,11 @@ export default function Login({ navigation }) {
                                             borderRadius: 40,
                                         }}
                                     />
-                                    <View style={{ paddingHorizontal: 8, flexWrap: "wrap", flex: 1 }}>
+                                    <View style={{ paddingHorizontal: 12, flex: 1, flexWrap: "nowrap" }}>
                                         <Text style={[fonts.h1, { fontFamily: "Quicksand-Bold" }]}>
                                             {selectedMember.name}
                                         </Text>
-                                        <Text style={[fonts.small, { fontFamily: "Quicksand-Regular" }]}>
+                                        <Text style={[fonts.small, { fontFamily: "Quicksand-Regular", }]}>
                                             {selectedMember.assign}
                                         </Text>
                                     </View>

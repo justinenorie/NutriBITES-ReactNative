@@ -11,8 +11,8 @@ export default function MemberCard({ picture, name, assign, onPress }) {
                         style={{ width: 40, height: 40, borderRadius: 20 }}
                     />
                 )}
-                <View style={{ paddingHorizontal: 8, flexWrap: "wrap", flex: 1 }}>
-                    <Text style={styles.name}>{name}</Text>
+                <View style={{ paddingHorizontal: 8, flex: 1, flexWrap: "nowrap" }}>
+                    <Text style={[styles.name]}>{name}</Text>
                     <Text style={styles.assign}>{assign}</Text>
                 </View>
             </TouchableOpacity>
