@@ -25,7 +25,7 @@ export default function Login({ navigation }) {
                 {/* Title */}
                 <View style={styles.title}>
                     <Text style={fonts.title}>
-                        Settings
+                        Setting
                     </Text>
                     <Image
                         source={logo}
