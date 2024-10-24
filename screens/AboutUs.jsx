@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     },
     initialContainer: {
         width: "100%",
-        padding: 24,
+        paddingHorizontal: 24,
     },
     modalBackground: {
         flex: 1,

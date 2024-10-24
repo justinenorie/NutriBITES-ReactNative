@@ -2,23 +2,18 @@ import React, { useState } from "react";
 import { View, StyleSheet, Pressable, Image } from "react-native";
 import Colors from "../constants/Colors";
 
-export default function MemberCard({ navigation }) {
-    const [activeMenu, setActiveMenu] = useState("Dashboard");
-
-    // Function to handle menu item press
-    const handlePress = (menuName) => {
-        setActiveMenu(menuName); // Set the active state for the pressed menu
-        navigation.navigate(menuName); // Navigate to the respective screen
-    };
-
+export default function MemberCard({ navigation, activeState, setActiveState }) {
     return (
         <View style={styles.container}>
             <View style={styles.menu}>
                 {/* Home Menu */}
-                <Pressable onPress={() => handlePress("Dashboard")}>
+                <Pressable onPress={() => {
+                    setActiveState("Dashboard")
+                    navigation.navigate("Dashboard")
+                }}>
                     <Image
                         source={
-                            activeMenu === "Dashboard"
+                            activeState === "Dashboard"
                                 ? require("../assets/menus/activeHome.png")
                                 : require("../assets/menus/home.png")
                         }
@@ -27,10 +22,13 @@ export default function MemberCard({ navigation }) {
                 </Pressable>
 
                 {/* Favorite Menu */}
-                <Pressable onPress={() => handlePress("About")}>
+                <Pressable onPress={() => {
+                    setActiveState("Favorites")
+                    navigation.navigate("Favorites")
+                }}>
                     <Image
                         source={
-                            activeMenu === "About"
+                            activeState === "Favorites"
                                 ? require("../assets/menus/activeFavorite.png")
                                 : require("../assets/menus/favorite.png")
                         }
@@ -40,12 +38,15 @@ export default function MemberCard({ navigation }) {
 
                 {/* Scan Menu */}
                 <Pressable
-                    style={[styles.scan, activeMenu === "Scan" && { backgroundColor: Colors.PRIMARY }]}
-                    onPress={() => handlePress("Scan")}
+                    style={[styles.scan, activeState === "ScanFood" && { backgroundColor: Colors.PRIMARY }]}
+                    onPress={() => {
+                        setActiveState("ScanFood")
+                        navigation.navigate("ScanFood")
+                    }}
                 >
                     <Image
                         source={
-                            activeMenu === "Scan"
+                            activeState === "ScanFood"
                                 ? require("../assets/menus/scan.png")
                                 : require("../assets/menus/scan.png")
                         }
@@ -54,10 +55,13 @@ export default function MemberCard({ navigation }) {
                 </Pressable>
 
                 {/* Info Menu */}
-                <Pressable onPress={() => handlePress("Infos")}>
+                <Pressable onPress={() => {
+                    setActiveState("FoodDetails")
+                    navigation.navigate("FoodDetails")
+                }}>
                     <Image
                         source={
-                            activeMenu === "Infos"
+                            activeState === "FoodDetails"
                                 ? require("../assets/menus/activeInfos.png")
                                 : require("../assets/menus/infos.png")
                         }
@@ -66,10 +70,13 @@ export default function MemberCard({ navigation }) {
                 </Pressable>
 
                 {/* Profile Menu */}
-                <Pressable onPress={() => handlePress("Profile")}>
+                <Pressable onPress={() => {
+                    setActiveState("Profile")
+                    navigation.navigate("Profile")
+                }}>
                     <Image
                         source={
-                            activeMenu === "Profile"
+                            activeState === "Profile"
                                 ? require("../assets/menus/activeProfile.png")
                                 : require("../assets/menus/profile.png")
                         }

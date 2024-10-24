@@ -18,7 +18,7 @@ const membersData = [
         name: "Harlenkens Q. Sanchez",
         assign: "UI/UX Designer, Color Styling, User Persona, UI/UX Designer, Color Styling, User Persona, UI/UX Designer, Color Styling, User Persona",
         picture: "harlenPic",
-        description: "Aye"
+        description: "My main role that has given to me is called Typography, being a member in this group, I learned how to find the right font, style, spacing, and adjust is quite challenging because finding the correct way on how to align the head, subhead and title."
     },
     {
         id: 4,

@@ -6,9 +6,6 @@ import AboutUs from "../screens/AboutUs";
 import LoginScreen from "../screens/LoginPages";
 import SignUpScreen from "../screens/SignUpPage";
 import Dashboards from "../screens/Dashboard";
-import Favorites from "../screens/Favorites";
-import ScanFood from "../screens/ScanFood";
-import FoodDetails from "../screens/FoodDetails";
 import Profile from "../screens/Profile";
 
 const Stack = createNativeStackNavigator();
@@ -23,12 +20,7 @@ export default function Navigation() {
                     animation: "fade",
                     animationTypeForReplace: "push",
                 }}
-                initialRouteName="Home"
             >
-                <Stack.Screen name="Home" component={HomePage} />
-                <Stack.Screen name="About" component={AboutUs} />
-                <Stack.Screen name="Login" component={LoginScreen} />
-                <Stack.Screen name="SignUp" component={SignUpScreen} />
                 <Stack.Screen name="Dashboard">
                     {(props) => (
                         <Dashboards
@@ -38,37 +30,6 @@ export default function Navigation() {
                         />
                     )}
                 </Stack.Screen>
-
-                <Stack.Screen name="Favorites">
-                    {(props) => (
-                        <Favorites
-                            {...props}
-                            activeState={activeState}
-                            setActiveState={setActiveState}
-                        />
-                    )}
-                </Stack.Screen>
-
-                <Stack.Screen name="ScanFood">
-                    {(props) => (
-                        <ScanFood
-                            {...props}
-                            activeState={activeState}
-                            setActiveState={setActiveState}
-                        />
-                    )}
-                </Stack.Screen>
-
-                <Stack.Screen name="FoodDetails">
-                    {(props) => (
-                        <FoodDetails
-                            {...props}
-                            activeState={activeState}
-                            setActiveState={setActiveState}
-                        />
-                    )}
-                </Stack.Screen>
-
                 <Stack.Screen name="Profile">
                     {(props) => (
                         <Profile
