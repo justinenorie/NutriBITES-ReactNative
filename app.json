@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "health-project",
-    "slug": "health-project",
+    "name": "nutribites",
+    "slug": "nutribites",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/HealthLogow.png",
@@ -18,7 +18,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/HealthLogo.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.nutribites"
     },
     "web": {
       "favicon": "./assets/HealthLogow.png"
