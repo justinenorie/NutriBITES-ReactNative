@@ -24,12 +24,8 @@ export default function Login({ navigation }) {
             <View style={styles.initialContainer}>  
                 {/* Title */}
                 <View style={styles.title}>
-                    <Text style={[fonts.logoName, { fontSize: 50 }]}>
-                        Nutri
-                        <Text style={[fonts.logoName, { fontSize: 38 }]}>
-                            BITES
-                        </Text>
-                        
+                    <Text style={fonts.title}>
+                        Settings
                     </Text>
                     <Image
                         source={logo}
