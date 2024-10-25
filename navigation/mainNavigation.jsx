@@ -10,6 +10,7 @@ import Favorites from "../screens/Favorites";
 import ScanFood from "../screens/ScanFood";
 import FoodDetails from "../screens/FoodDetails";
 import Profile from "../screens/Profile";
+import Foodpyramid from "../screens/FoodPyramid";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,11 +25,14 @@ export default function Navigation() {
                     animationTypeForReplace: "push",
                 }}
                 initialRouteName="Home"
-            >
+            >   
+                {/* Main Screen Navigations */}
                 <Stack.Screen name="Home" component={HomePage} />
                 <Stack.Screen name="About" component={AboutUs} />
                 <Stack.Screen name="Login" component={LoginScreen} />
                 <Stack.Screen name="SignUp" component={SignUpScreen} />
+
+                {/* Menu Navigations */}
                 <Stack.Screen name="Dashboard">
                     {(props) => (
                         <Dashboards
@@ -78,6 +82,9 @@ export default function Navigation() {
                         />
                     )}
                 </Stack.Screen>
+
+                {/* Content Navigations */}
+                <Stack.Screen name="FoodPyramid" component={Foodpyramid}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
