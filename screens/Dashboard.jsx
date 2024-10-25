@@ -32,7 +32,7 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                 </View>
 
                 {/* Content */}
-                <View style={styles.BLDContainer}>
+                <View style={[styles.BLDContainer, { backgroundColor: "#D5D4C3"}]}>
                     <View style={styles.textBLD}>
                         <Text style={styles.titleBLD}>BREAKFAST</Text>
                         <Text style={fonts.small}>
@@ -47,7 +47,7 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                     />
                 </View>
 
-                <View style={styles.BLDContainer}>
+                <View style={[styles.BLDContainer, { backgroundColor: "#D5C3C3"}]}>
                     <View style={styles.textBLD}>
                         <Text style={styles.titleBLD}>LUNCH</Text>
                         <Text style={fonts.small}>
@@ -62,7 +62,7 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                     />
                 </View>
 
-                <View style={styles.BLDContainer}>
+                <View style={[styles.BLDContainer, { backgroundColor: "#C4C3D5"}]}>
                     <View style={styles.textBLD}>
                         <Text style={styles.titleBLD}>DINNER</Text>
                         <Text style={fonts.small}>
@@ -99,7 +99,8 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                         marginTop: 12,
                     }}
                 >
-                    <TouchableOpacity>
+                    {/* Food Pyramid */}
+                    <TouchableOpacity onPress={() => navigation.navigate("FoodPyramid")}>
                         <View style={styles.blendmodeDark}>
                             <Image
                                 style={{
@@ -134,6 +135,7 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                         </View>
                     </TouchableOpacity>
 
+                    {/* Glow, Grow and Go Foods */}
                     <View
                         style={{
                             flexDirection: "column",
@@ -159,7 +161,7 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                             <View style={styles.blendmodeDark}>
                                 <Image
                                     style={styles.GGGstyle}
-                                    source={require("../assets/glow.jpg")}
+                                    source={require("../assets/grow.jpg")}
                                 />
                             </View>
 
@@ -172,7 +174,7 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                             <View style={styles.blendmodeDark}>
                                 <Image
                                     style={styles.GGGstyle}
-                                    source={require("../assets/glow.jpg")}
+                                    source={require("../assets/go.jpg")}
                                 />
                             </View>
                             <View style={{ position: "absolute", padding: 12 }}>
