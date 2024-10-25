@@ -40,11 +40,16 @@ export default function Login({ navigation }) {
                 <Image source={background} style={styles.backgroundImage} />
 
                 <View style={styles.initialContainer}>
-                    <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <Text style={[fonts.title, { marginVertical: 24 }]}>
-                            About Us
-                        </Text>
-                    </TouchableOpacity>
+                    <View
+                        style={{ flexDirection: "row", alignItems: "center" }}
+                    >
+                        <TouchableOpacity onPress={() => navigation.goBack()}>
+                            <Text style={styles.backButton}>{"<"}</Text>
+                        </TouchableOpacity>
+                        <View style={{ marginHorizontal: 24, marginVertical: 24 }}>
+                            <Text style={fonts.title}>About Us</Text>
+                        </View>
+                    </View>
 
                     <Text style={[fonts.h1, { fontWeight: "500" }]}>
                         Our mission is to deliver accessible and engaging health
@@ -173,5 +178,10 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         marginHorizontal: 24,
         alignItems: "center",
+    },
+    backButton: {
+        fontSize: 40,
+        color: Colors.TEXTblack,
+        fontFamily: "MochiyPopOne-Regular",
     },
 });
