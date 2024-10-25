@@ -7,6 +7,7 @@ import {
     Image,
     StatusBar,
     TouchableOpacity,
+    Modal,
 } from "react-native";
 import Colors from "../constants/Colors";
 import fonts from "../constants/Typography";
