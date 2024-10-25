@@ -9,7 +9,9 @@ export default function App() {
         'Poppins-Bold': require('./assets/fonts/Poppins-Bold.ttf'),
         'Quicksand-Regular': require('./assets/fonts/Quicksand-Regular.ttf'),
         'Quicksand-Bold': require('./assets/fonts/Quicksand-Bold.ttf'),
-        'MochiyPopOne-Regular' : require('./assets/fonts/MochiyPopOne-Regular.ttf')
+        'MochiyPopOne-Regular' : require('./assets/fonts/MochiyPopOne-Regular.ttf'),
+        'Oswald-Regular' : require('./assets/fonts/Oswald-Regular.ttf'),
+        'Oswald-Bold' : require('./assets/fonts/Oswald-Bold.ttf')
     });
 
     if (!fontsLoaded) {

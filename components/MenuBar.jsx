@@ -92,6 +92,10 @@ const styles = StyleSheet.create({
     container: {
         alignItems: "center",
         padding: 24,
+        position: 'absolute',
+        bottom: 0,
+        width: "100%",
+        
     },
     menu: {
         paddingHorizontal: 15,
@@ -120,3 +124,4 @@ const styles = StyleSheet.create({
         padding: 15,
     },
 });
+

@@ -6,6 +6,7 @@ import {
     ScrollView,
     Image,
     StatusBar,
+    TouchableOpacity,
 } from "react-native";
 import Colors from "../constants/Colors";
 import fonts from "../constants/Typography";
@@ -32,37 +33,156 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
 
                 {/* Content */}
                 <View style={styles.BLDContainer}>
-                    <View>
-                        <Text>BREAKFAST</Text>
-                        <Text>
+                    <View style={styles.textBLD}>
+                        <Text style={styles.titleBLD}>BREAKFAST</Text>
+                        <Text style={fonts.small}>
                             It jumpstarts your metabolism and gives you the
                             energy to start your day. It also improves
                             concentration and performance.
                         </Text>
                     </View>
+                    <Image
+                        style={styles.imagesize}
+                        source={require("../assets/breakfast.jpg")}
+                    />
                 </View>
 
                 <View style={styles.BLDContainer}>
-                    <View>
-                        <Text>LUNCH</Text>
-                        <Text>
+                    <View style={styles.textBLD}>
+                        <Text style={styles.titleBLD}>LUNCH</Text>
+                        <Text style={fonts.small}>
                             It helps to maintain energy levels and provides
                             essential nutrients during the busiest part of the
                             day.
                         </Text>
                     </View>
+                    <Image
+                        style={styles.imagesize}
+                        source={require("../assets/lunch.jpg")}
+                    />
                 </View>
 
                 <View style={styles.BLDContainer}>
-                    <View>
-                        <Text>DINNER</Text>
-                        <Text>
+                    <View style={styles.textBLD}>
+                        <Text style={styles.titleBLD}>DINNER</Text>
+                        <Text style={fonts.small}>
                             A balanced dinner helps to replenish your body after
                             a long day and prepares it for rest and recovery
                             during sleep.
                         </Text>
                     </View>
+                    <Image
+                        style={styles.imagesize}
+                        source={require("../assets/dinner.jpeg")}
+                    />
                 </View>
+
+                <View style={[styles.BLDContainer, { marginTop: 12 }]}>
+                    <Image
+                        style={{ width: 150, height: 150, borderRadius: 100 }}
+                        source={require("../assets/drinking-boy.jpg")}
+                    />
+                    <View style={styles.textBLD}>
+                        <Text style={fonts.subtitle}>Did you know?</Text>
+                        <Text style={fonts.small}>
+                            Staying hydrated helps improve brain function and
+                            mood. Dehydration can cause problems like difficulty
+                            concentrating, headaches, and mood swings.
+                        </Text>
+                    </View>
+                </View>
+
+                <View
+                    style={{
+                        flexDirection: "row",
+                        flexWrap: "wrap",
+                        marginTop: 12,
+                    }}
+                >
+                    <TouchableOpacity>
+                        <View style={styles.blendmodeDark}>
+                            <Image
+                                style={{
+                                    width: 168,
+                                    height: 398,
+                                    borderRadius: 20,
+                                    opacity: 0.5,
+                                }}
+                                source={require("../assets/foodpyramid.jpg")}
+                            />
+                        </View>
+
+                        <View style={{ position: "absolute", padding: 12 }}>
+                            <Text style={fonts.subtitleWhite}>
+                                Food Pyramid
+                            </Text>
+                            <Text
+                                style={[
+                                    fonts.smallWhite,
+                                    { fontFamily: "Quicksand-Bold" },
+                                ]}
+                            >
+                                The Food Pyramid is a visual guide that helps
+                                people plan a balanced diet by categorizing
+                                foods based on their nutritional value and
+                                recommending the right proportions. It
+                                encourages a higher intake of nutrient-rich
+                                foods like fruits, vegetables, and whole grains,
+                                while advising smaller portions of fats and
+                                sugary foods for optimal health.
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+
+                    <View
+                        style={{
+                            flexDirection: "column",
+                            flexWrap: "wrap",
+                            justifyContent: "space-between",
+                            marginLeft: 20,
+                        }}
+                    >
+                        <TouchableOpacity>
+                            <View style={styles.blendmodeDark}>
+                                <Image
+                                    style={styles.GGGstyle}
+                                    source={require("../assets/glow.jpg")}
+                                />
+                            </View>
+
+                            <View style={{ position: "absolute", padding: 12 }}>
+                                <Text style={fonts.subtitleWhite}>Glow</Text>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity>
+                            <View style={styles.blendmodeDark}>
+                                <Image
+                                    style={styles.GGGstyle}
+                                    source={require("../assets/glow.jpg")}
+                                />
+                            </View>
+
+                            <View style={{ position: "absolute", padding: 12 }}>
+                                <Text style={fonts.subtitleWhite}>Grow</Text>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity>
+                            <View style={styles.blendmodeDark}>
+                                <Image
+                                    style={styles.GGGstyle}
+                                    source={require("../assets/glow.jpg")}
+                                />
+                            </View>
+                            <View style={{ position: "absolute", padding: 12 }}>
+                                <Text style={fonts.subtitleWhite}>Go</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
+                <View style={{ height: 150 }}></View>
             </ScrollView>
 
             <StatusBar backgroundColor={Colors.BACKGROUND} />
@@ -88,15 +208,41 @@ const styles = StyleSheet.create({
     title: {
         flexDirection: "row",
         justifyContent: "center",
+        marginBottom: 24,
     },
     BLDContainer: {
         flexDirection: "row",
+        flexWrap: "wrap",
         justifyContent: "space-between",
         width: "100%",
         backgroundColor: "#D2D4DF",
-        marginTop: 24,
+        marginVertical: 6,
         padding: 12,
         borderRadius: 20,
         borderWidth: 1,
+    },
+    textBLD: {
+        width: "50%",
+    },
+    titleBLD: {
+        fontSize: 20,
+        fontFamily: "Quicksand-Bold",
+    },
+    imagesize: {
+        width: 130,
+        height: 104,
+        borderRadius: 17,
+        borderWidth: 1,
+        borderColor: "#5B441D",
+    },
+    GGGstyle: {
+        width: 150,
+        height: 120,
+        borderRadius: 20,
+        opacity: 0.5,
+    },
+    blendmodeDark: {
+        backgroundColor: "rgba(0,0,0,0.9)",
+        borderRadius: 20,
     },
 });
