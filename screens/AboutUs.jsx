@@ -40,9 +40,11 @@ export default function Login({ navigation }) {
                 <Image source={background} style={styles.backgroundImage} />
 
                 <View style={styles.initialContainer}>
-                    <Text style={[fonts.title, { marginVertical: 24 }]}>
-                        About Us
-                    </Text>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Text style={[fonts.title, { marginVertical: 24 }]}>
+                            About Us
+                        </Text>
+                    </TouchableOpacity>
 
                     <Text style={[fonts.h1, { fontWeight: "500" }]}>
                         Our mission is to deliver accessible and engaging health
