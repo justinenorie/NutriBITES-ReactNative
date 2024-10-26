@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
     View,
     Text,
@@ -7,15 +8,25 @@ import {
     Image,
     StatusBar,
     TouchableOpacity,
-    Modal,
     TextInput,
 } from "react-native";
 import Colors from "../constants/Colors";
 import fonts from "../constants/Typography";
 import logo from "../assets/HealthLogo.png";
 import Menu from "../components/MenuBar";
+import GGGModals from "../components/GGGFoodModals";
 
 export default function Dashboard({ navigation, activeState, setActiveState }) {
+    const [visibleFoodModal, setvisibleFoodModal] = useState(null);
+
+    const handleModal = (type) => {
+        setvisibleFoodModal(type);
+    };
+
+    const closeModal = () => {
+        setvisibleFoodModal(null);
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollview}>
@@ -185,7 +196,7 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                             marginLeft: 20,
                         }}
                     >
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => handleModal("Glow")}>
                             <View style={styles.blendmodeDark}>
                                 <Image
                                     style={styles.GGGstyle}
@@ -198,7 +209,7 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                             </View>
                         </TouchableOpacity>
 
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => handleModal("Grow")}>
                             <View style={styles.blendmodeDark}>
                                 <Image
                                     style={styles.GGGstyle}
@@ -211,7 +222,7 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                             </View>
                         </TouchableOpacity>
 
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => handleModal("Go")}>
                             <View style={styles.blendmodeDark}>
                                 <Image
                                     style={styles.GGGstyle}
@@ -233,6 +244,10 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                 navigation={navigation}
                 activeState={activeState}
                 setActiveState={setActiveState}
+            />
+            <GGGModals
+                type={visibleFoodModal}
+                closeModal={closeModal}
             />
         </SafeAreaView>
     );
