@@ -67,6 +67,7 @@ export default function Login({ navigation }) {
                         />
                     ))}
                 </View>
+                <View style={{height: 24}}></View>
             </ScrollView>
 
             <Modal
