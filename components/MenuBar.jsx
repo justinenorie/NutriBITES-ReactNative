@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { View, StyleSheet, Pressable, Image } from "react-native";
 import Colors from "../constants/Colors";
 
@@ -17,7 +16,7 @@ export default function MemberCard({ navigation, activeState, setActiveState }) 
                                 ? require("../assets/menus/activeHome.png")
                                 : require("../assets/menus/home.png")
                         }
-                        style={[styles.icon, styles.iconMargin]}
+                        style={[styles.icon, styles.iconMargin, { opacity: activeState === "Dashboard" ? 1 : 0.5 }]}
                     />
                 </Pressable>
 
@@ -32,7 +31,7 @@ export default function MemberCard({ navigation, activeState, setActiveState }) 
                                 ? require("../assets/menus/activeFavorite.png")
                                 : require("../assets/menus/favorite.png")
                         }
-                        style={[styles.icon, styles.iconMargin]}
+                        style={[styles.icon, styles.iconMargin, { opacity: activeState === "Favorites" ? 1 : 0.5 }]}
                     />
                 </Pressable>
 
@@ -50,7 +49,7 @@ export default function MemberCard({ navigation, activeState, setActiveState }) 
                                 ? require("../assets/menus/scan.png")
                                 : require("../assets/menus/scan.png")
                         }
-                        style={styles.icon}
+                        style={[styles.icon, { opacity: activeState === "ScanFood" ? 1 : 0.5 }]}
                     />
                 </Pressable>
 
@@ -65,7 +64,7 @@ export default function MemberCard({ navigation, activeState, setActiveState }) 
                                 ? require("../assets/menus/activeInfos.png")
                                 : require("../assets/menus/infos.png")
                         }
-                        style={[styles.icon, styles.iconMargin]}
+                        style={[styles.icon, styles.iconMargin, { opacity: activeState === "FoodDetails" ? 1 : 0.5 }]}
                     />
                 </Pressable>
 
@@ -80,7 +79,7 @@ export default function MemberCard({ navigation, activeState, setActiveState }) 
                                 ? require("../assets/menus/activeProfile.png")
                                 : require("../assets/menus/profile.png")
                         }
-                        style={[styles.icon, styles.iconMargin]}
+                        style={[styles.icon, styles.iconMargin, { opacity: activeState === "Profile" ? 1 : 0.5 }]}
                     />
                 </Pressable>
             </View>
