@@ -8,6 +8,7 @@ import {
     StatusBar,
     TouchableOpacity,
     Modal,
+    TextInput,
 } from "react-native";
 import Colors from "../constants/Colors";
 import fonts from "../constants/Typography";
@@ -32,8 +33,35 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                     />
                 </View>
 
+                <View
+                    style={{
+                        borderWidth: 1,
+                        borderColor: "black",
+                        borderRadius: 15,
+                        padding: 10,
+                        flexDirection: "row",
+                        alignItems: "center",
+                        marginBottom: 12,
+                    }}
+                >
+                    <Image
+                        source={require("../assets/icons/search.png")}
+                        style={{ width: 20, height: 20, marginHorizontal: 10 }}
+                    />
+                    <TextInput
+                        placeholder="What are you looking for today? "
+                        placeholderTextColor={Colors.TEXTblack}
+                        style={[fonts.h2, { width: "100%" }]}
+                    />
+                </View>
+
                 {/* Content */}
-                <View style={[styles.BLDContainer, { backgroundColor: "#D5D4C3"}]}>
+                <View
+                    style={[
+                        styles.BLDContainer,
+                        { backgroundColor: "#D5D4C3" },
+                    ]}
+                >
                     <View style={styles.textBLD}>
                         <Text style={styles.titleBLD}>BREAKFAST</Text>
                         <Text style={fonts.small}>
@@ -48,7 +76,12 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                     />
                 </View>
 
-                <View style={[styles.BLDContainer, { backgroundColor: "#D5C3C3"}]}>
+                <View
+                    style={[
+                        styles.BLDContainer,
+                        { backgroundColor: "#D5C3C3" },
+                    ]}
+                >
                     <View style={styles.textBLD}>
                         <Text style={styles.titleBLD}>LUNCH</Text>
                         <Text style={fonts.small}>
@@ -63,7 +96,12 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                     />
                 </View>
 
-                <View style={[styles.BLDContainer, { backgroundColor: "#C4C3D5"}]}>
+                <View
+                    style={[
+                        styles.BLDContainer,
+                        { backgroundColor: "#C4C3D5" },
+                    ]}
+                >
                     <View style={styles.textBLD}>
                         <Text style={styles.titleBLD}>DINNER</Text>
                         <Text style={fonts.small}>
@@ -101,7 +139,9 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                     }}
                 >
                     {/* Food Pyramid */}
-                    <TouchableOpacity onPress={() => navigation.navigate("FoodPyramid")}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("FoodPyramid")}
+                    >
                         <View style={styles.blendmodeDark}>
                             <Image
                                 style={{
