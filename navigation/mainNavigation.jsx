@@ -17,15 +17,14 @@ const Stack = createNativeStackNavigator();
 export default function Navigation() {
     const [activeState, setActiveState] = useState("Dashboard");
     return (
-        <NavigationContainer independent={true}>
+        <NavigationContainer>
             <Stack.Navigator
+                initialRouteName="Home"
                 screenOptions={{
                     headerShown: false,
                     animation: "fade",
-                    animationTypeForReplace: "push",
                 }}
-                initialRouteName="Home"
-            >   
+            >
                 {/* Main Screen Navigations */}
                 <Stack.Screen name="Home" component={HomePage} />
                 <Stack.Screen name="About" component={AboutUs} />
@@ -84,7 +83,7 @@ export default function Navigation() {
                 </Stack.Screen>
 
                 {/* Content Navigations */}
-                <Stack.Screen name="FoodPyramid" component={Foodpyramid}/>
+                <Stack.Screen name="FoodPyramid" component={Foodpyramid} />
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -15,6 +15,11 @@ import fonts from "../constants/Typography";
 import logo from "../assets/HealthLogo.png";
 import Menu from "../components/MenuBar";
 import GGGModals from "../components/GGGFoodModals";
+import Animated, {
+    FlipInXUp,
+    LightSpeedInRight,
+    LightSpeedInLeft,
+} from "react-native-reanimated";
 
 export default function Dashboard({ navigation, activeState, setActiveState }) {
     const [visibleFoodModal, setvisibleFoodModal] = useState(null);
@@ -44,6 +49,7 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                     />
                 </View>
 
+                {/* Search Bar */}
                 <View
                     style={{
                         borderWidth: 1,
@@ -67,7 +73,8 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                 </View>
 
                 {/* Content */}
-                <View
+                <Animated.View
+                    entering={LightSpeedInRight.duration(1000)}
                     style={[
                         styles.BLDContainer,
                         { backgroundColor: "#D5D4C3" },
@@ -85,13 +92,14 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                         style={styles.imagesize}
                         source={require("../assets/breakfast.jpg")}
                     />
-                </View>
+                </Animated.View>
 
-                <View
+                <Animated.View
                     style={[
                         styles.BLDContainer,
                         { backgroundColor: "#D5C3C3" },
                     ]}
+                    entering={LightSpeedInLeft.duration(1000)}
                 >
                     <View style={styles.textBLD}>
                         <Text style={styles.titleBLD}>LUNCH</Text>
@@ -105,13 +113,14 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                         style={styles.imagesize}
                         source={require("../assets/lunch.jpg")}
                     />
-                </View>
+                </Animated.View>
 
-                <View
+                <Animated.View
                     style={[
                         styles.BLDContainer,
                         { backgroundColor: "#C4C3D5" },
                     ]}
+                    entering={LightSpeedInRight.duration(1000)}
                 >
                     <View style={styles.textBLD}>
                         <Text style={styles.titleBLD}>DINNER</Text>
@@ -125,9 +134,12 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                         style={styles.imagesize}
                         source={require("../assets/dinner.jpeg")}
                     />
-                </View>
+                </Animated.View>
 
-                <View style={[styles.BLDContainer, { marginTop: 12 }]}>
+                <Animated.View
+                    style={[styles.BLDContainer, { marginTop: 12 }]}
+                    entering={LightSpeedInLeft.duration(1500)}
+                >
                     <Image
                         style={{ width: 150, height: 150, borderRadius: 100 }}
                         source={require("../assets/drinking-boy.jpg")}
@@ -140,7 +152,7 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                             concentrating, headaches, and mood swings.
                         </Text>
                     </View>
-                </View>
+                </Animated.View>
 
                 <View
                     style={{
@@ -245,10 +257,7 @@ export default function Dashboard({ navigation, activeState, setActiveState }) {
                 activeState={activeState}
                 setActiveState={setActiveState}
             />
-            <GGGModals
-                type={visibleFoodModal}
-                closeModal={closeModal}
-            />
+            <GGGModals type={visibleFoodModal} closeModal={closeModal} />
         </SafeAreaView>
     );
 }

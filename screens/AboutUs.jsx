@@ -15,10 +15,9 @@ import Colors from "../constants/Colors";
 import fonts from "../constants/Typography";
 import background from "../assets/background-img.jpg";
 import images from "../data/images";
+import Animated, { FadeInUp, FadeOutDown } from "react-native-reanimated";
 
 export default function Login({ navigation }) {
-    const signIn = () => navigation.navigate("Login");
-
     const [selectedMember, setSelectedMember] = useState(null);
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -46,15 +45,17 @@ export default function Login({ navigation }) {
                         <TouchableOpacity onPress={() => navigation.goBack()}>
                             <Text style={styles.backButton}>{"<"}</Text>
                         </TouchableOpacity>
-                        <View style={{ marginHorizontal: 24, marginVertical: 24 }}>
+                        <View
+                            style={{ marginHorizontal: 24, marginVertical: 24 }}
+                        >
                             <Text style={fonts.title}>About Us</Text>
                         </View>
                     </View>
 
                     <Text style={[fonts.h1, { fontWeight: "500" }]}>
-                        Our mission is to deliver accessible and engaging health
-                        education, empowering you to make informed choices for a
-                        healthier life.
+                        Our mission is to deliver accessible and engaging
+                        nutritional education, empowering you to make informed
+                        choices for a healthier life.
                     </Text>
 
                     {data.map((item) => (
@@ -67,7 +68,7 @@ export default function Login({ navigation }) {
                         />
                     ))}
                 </View>
-                <View style={{height: 24}}></View>
+                <View style={{ height: 24 }}></View>
             </ScrollView>
 
             <Modal
@@ -77,7 +78,11 @@ export default function Login({ navigation }) {
                 onRequestClose={closeModal}
             >
                 <View style={styles.modalBackground}>
-                    <View style={styles.modalContainer}>
+                    <Animated.View
+                        entering={FadeInUp.delay(200).duration(400)}
+                        exiting={FadeOutDown.delay(200).duration(800)}
+                        style={styles.modalContainer}
+                    >
                         {selectedMember && (
                             <>
                                 <View style={styles.modalTitle}>
@@ -132,7 +137,7 @@ export default function Login({ navigation }) {
                                 </TouchableOpacity>
                             </>
                         )}
-                    </View>
+                    </Animated.View>
                 </View>
             </Modal>
         </SafeAreaView>
@@ -153,7 +158,7 @@ const styles = StyleSheet.create({
     },
     initialContainer: {
         width: "100%",
-        paddingHorizontal: 24,
+        padding: 24,
     },
     modalBackground: {
         flex: 1,
@@ -162,7 +167,7 @@ const styles = StyleSheet.create({
         backgroundColor: "rgba(0, 0, 0, 0.4)",
     },
     modalContainer: {
-        backgroundColor: Colors.PRIMARY,
+        backgroundColor: "#E7C8B1",
         marginHorizontal: 24,
         paddingHorizontal: 24,
         borderRadius: 27,

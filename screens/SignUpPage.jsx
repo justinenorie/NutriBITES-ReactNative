@@ -12,6 +12,7 @@ import Colors from "../constants/Colors";
 import InputLayout from "../components/InputLayout";
 import ButtonStyle from "../components/ButtonStyle";
 import logo from "../assets/HealthLogo.png";
+import Animated, { FadeInUp } from "react-native-reanimated";
 
 export default function Login({ navigation }) {
     const signIn = () => navigation.navigate("Login");
@@ -21,9 +22,17 @@ export default function Login({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.loginContainer}>
-                <Text style={fonts.title}>Sign up with</Text>
+                <Animated.Text
+                    style={fonts.title}
+                    entering={FadeInUp.duration(1000)}
+                >
+                    Sign up with
+                </Animated.Text>
                 {/* Title */}
-                <View style={styles.title}>
+                <Animated.View
+                    style={styles.title}
+                    entering={FadeInUp.duration(1000)}
+                >
                     <Text style={[fonts.logoName, { fontSize: 50 }]}>
                         Nutri
                         <Text style={[fonts.logoName, { fontSize: 38 }]}>
@@ -34,7 +43,7 @@ export default function Login({ navigation }) {
                         source={logo}
                         style={{ width: 50, height: 50, marginHorizontal: 2 }}
                     />
-                </View>
+                </Animated.View>
 
                 <InputLayout placeholder="Full Name" />
                 <InputLayout
@@ -64,7 +73,7 @@ export default function Login({ navigation }) {
                         alignItems: "center",
                         backgroundColor: Colors.PRIMARY,
                     }}
-                    fontsize={[fonts.h1, { fontWeight: 'bold' }]}
+                    fontsize={[fonts.h1, { fontWeight: "bold" }]}
                 />
 
                 <View style={styles.haveAccount}>

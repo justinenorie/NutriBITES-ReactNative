@@ -13,6 +13,7 @@ import InputLayout from "../components/InputLayout";
 import ButtonStyle from "../components/ButtonStyle";
 import GoogleIcon from "../assets/icons/google.png";
 import logo from "../assets/HealthLogo.png";
+import Animated, { FadeInUp } from "react-native-reanimated";
 
 export default function Login({ navigation }) {
     const signUp = () => navigation.navigate("SignUp");
@@ -23,7 +24,11 @@ export default function Login({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.loginContainer}>
-                <View style={styles.title}>
+                <Animated.View
+                    style={styles.title}
+                    entering={FadeInUp.duration(1000)}
+                    
+                >
                     <Text style={[fonts.logoName, { fontSize: 50 }]}>
                         Nutri
                         <Text style={[fonts.logoName, { fontSize: 38 }]}>
@@ -34,10 +39,13 @@ export default function Login({ navigation }) {
                         source={logo}
                         style={{ width: 50, height: 50, marginHorizontal: 2 }}
                     />
-                </View>
-                <Text style={[fonts.title, { textAlign: "center" }]}>
+                </Animated.View>
+                <Animated.Text
+                    style={[fonts.title, { textAlign: "center" }]}
+                    entering={FadeInUp.duration(1000)}
+                >
                     Sign in to your Account
-                </Text>
+                </Animated.Text>
 
                 <InputLayout
                     placeholder="Username"
@@ -62,7 +70,7 @@ export default function Login({ navigation }) {
                         alignItems: "center",
                         backgroundColor: Colors.PRIMARY,
                     }}
-                    fontsize={[fonts.h1, { fontWeight: 'bold' }]}
+                    fontsize={[fonts.h1, { fontWeight: "bold" }]}
                 />
 
                 <Text style={[styles.forgotPassword, fonts.h2]}>

@@ -41,5 +41,6 @@ const styles = StyleSheet.create({
     title: {
         flexDirection: "row",
         justifyContent: "center",
+        marginVertical: 12,
     },
 });

@@ -6,7 +6,6 @@ import {
     Image,
     Modal,
 } from "react-native";
-import Colors from "../constants/Colors";
 import fonts from "../constants/Typography";
 
 export default function GGGFoodModals({ closeModal, type }) {

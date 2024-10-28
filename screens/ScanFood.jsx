@@ -21,9 +21,11 @@ export default function ScanMeal({ navigation, activeState, setActiveState }) {
             </ScrollView>
 
             <StatusBar backgroundColor={Colors.BACKGROUND} />
-            <Menu navigation={navigation}
+            <Menu
+                navigation={navigation}
                 activeState={activeState}
-                setActiveState={setActiveState} />
+                setActiveState={setActiveState}
+            />
         </SafeAreaView>
     );
 }
@@ -41,5 +43,6 @@ const styles = StyleSheet.create({
     title: {
         flexDirection: "row",
         justifyContent: "center",
+        marginVertical: 12,
     },
 });
