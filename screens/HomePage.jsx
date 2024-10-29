@@ -14,8 +14,6 @@ import background from "../assets/background-img.jpg";
 
 export default function Login({ navigation }) {
     const signIn = () => navigation.navigate("Login");
-    const aboutUs = () => navigation.navigate("About");
-
     return (
         <SafeAreaView
             style={[styles.container, { backgroundColor: "rgba(0,0,0,0.1)" }]}
@@ -58,13 +56,6 @@ export default function Login({ navigation }) {
                     }}
                     fontsize={[fonts.h1, { fontWeight: 'bold' }]}
                 />
-
-                <View style={styles.aboutUs}>
-                    <TouchableOpacity onPress={aboutUs}>
-                        <Text style={[fonts.h1, {fontWeight: "bold"}]}>About Us</Text>
-                    </TouchableOpacity>
-                </View>
-                
             </View>
         </SafeAreaView>
     );
@@ -92,8 +83,4 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         marginVertical: 12,
     },
-    aboutUs: {
-        alignItems: "center",
-        paddingVertical: 24,
-    }
 });

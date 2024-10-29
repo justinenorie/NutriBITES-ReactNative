@@ -27,7 +27,6 @@ export default function Navigation() {
             >
                 {/* Main Screen Navigations */}
                 <Stack.Screen name="Home" component={HomePage} />
-                <Stack.Screen name="About" component={AboutUs} />
                 <Stack.Screen name="Login" component={LoginScreen} />
                 <Stack.Screen name="SignUp" component={SignUpScreen} />
 
@@ -72,9 +71,9 @@ export default function Navigation() {
                     )}
                 </Stack.Screen>
 
-                <Stack.Screen name="Profile">
+                <Stack.Screen name="About">
                     {(props) => (
-                        <Profile
+                        <AboutUs
                             {...props}
                             activeState={activeState}
                             setActiveState={setActiveState}

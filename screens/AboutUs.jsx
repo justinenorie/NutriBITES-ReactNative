@@ -13,11 +13,12 @@ import data from "../data/membersData.js";
 import Cards from "../components/MemberCard";
 import Colors from "../constants/Colors";
 import fonts from "../constants/Typography";
+import Menu from "../components/MenuBar";
 import background from "../assets/background-img.jpg";
 import images from "../data/images";
 import Animated, { FadeInUp, FadeOutDown } from "react-native-reanimated";
 
-export default function Login({ navigation }) {
+export default function Login({ navigation, activeState, setActiveState }) {
     const [selectedMember, setSelectedMember] = useState(null);
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -40,13 +41,9 @@ export default function Login({ navigation }) {
 
                 <View style={styles.initialContainer}>
                     <View
-                        style={{ flexDirection: "row", alignItems: "center" }}
-                    >
-                        <TouchableOpacity onPress={() => navigation.goBack()}>
-                            <Text style={styles.backButton}>{"<"}</Text>
-                        </TouchableOpacity>
+                        style={{ flexDirection: "row", alignItems: "center" }}>
                         <View
-                            style={{ marginHorizontal: 24, marginVertical: 24 }}
+                            style={{ marginVertical: 24 }}
                         >
                             <Text style={fonts.title}>About Us</Text>
                         </View>
@@ -68,8 +65,14 @@ export default function Login({ navigation }) {
                         />
                     ))}
                 </View>
-                <View style={{ height: 24 }}></View>
+                <View style={{ height: 100 }}></View>
             </ScrollView>
+
+            <Menu
+                navigation={navigation}
+                activeState={activeState}
+                setActiveState={setActiveState}
+            />
 
             <Modal
                 animationType="slide"

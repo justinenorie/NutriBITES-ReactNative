@@ -70,16 +70,16 @@ export default function MemberCard({ navigation, activeState, setActiveState }) 
 
                 {/* Profile Menu */}
                 <Pressable onPress={() => {
-                    setActiveState("Profile")
-                    navigation.navigate("Profile")
+                    setActiveState("About")
+                    navigation.navigate("About")
                 }}>
                     <Image
                         source={
-                            activeState === "Profile"
+                            activeState === "About"
                                 ? require("../assets/menus/activeProfile.png")
                                 : require("../assets/menus/profile.png")
                         }
-                        style={[styles.icon, styles.iconMargin, { opacity: activeState === "Profile" ? 1 : 0.5 }]}
+                        style={[styles.icon, styles.iconMargin, { opacity: activeState === "About" ? 1 : 0.5 }]}
                     />
                 </Pressable>
             </View>
