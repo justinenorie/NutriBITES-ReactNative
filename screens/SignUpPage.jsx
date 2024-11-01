@@ -6,6 +6,7 @@ import {
     SafeAreaView,
     TouchableOpacity,
     Image,
+    Alert,
 } from "react-native";
 import fonts from "../constants/Typography";
 import Colors from "../constants/Colors";
@@ -13,12 +14,39 @@ import InputLayout from "../components/InputLayout";
 import ButtonStyle from "../components/ButtonStyle";
 import logo from "../assets/HealthLogo.png";
 import Animated, { FadeInUp } from "react-native-reanimated";
+import { auth } from "../firebaseConfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Login({ navigation }) {
     const signIn = () => navigation.navigate("Login");
 
+    const [fullName, setfullName] = useState("");
     const [username, setUsername] = useState("");
+    const [email, setemail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setconfirmPassword] = useState("");
+
+    const isFormValid = () => email.includes("@") && password === confirmPassword && password.length >= 8;
+
+    const handleSignUp = async () => {
+        if(!isFormValid()) {
+            Alert.alert("Error", "Please enter a valid email and matching password with at least 8 characters above.");
+        return;
+        }
+        
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            Alert.alert("Success", "Account created successfully");
+            setfullName("");
+            setUsername("");
+            setemail("");
+            setPassword("");
+            setconfirmPassword("");
+        } catch (error) {
+            Alert.alert("Error", `Error creating user: ${error.message}`);
+        }
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.loginContainer}>
@@ -45,11 +73,20 @@ export default function Login({ navigation }) {
                     />
                 </Animated.View>
 
-                <InputLayout placeholder="Full Name" />
+                <InputLayout
+                    placeholder="Full Name"
+                    value={fullName}
+                    onChangeText={setfullName}
+                />
                 <InputLayout
                     placeholder="Username"
                     value={username}
                     onChangeText={setUsername}
+                />
+                <InputLayout
+                    placeholder="Email"
+                    value={email}
+                    onChangeText={setemail}
                 />
                 <InputLayout
                     placeholder="Password"
@@ -60,13 +97,15 @@ export default function Login({ navigation }) {
                 />
                 <InputLayout
                     placeholder="Confirm Password"
+                    value={confirmPassword}
+                    onChangeText={setconfirmPassword}
                     security={true}
                     iconName="eye"
                 />
 
                 <ButtonStyle
                     title={"SIGN UP"}
-                    onPress={signIn}
+                    onPress={handleSignUp}
                     buttonstyle={{
                         borderWidth: 1,
                         borderColor: "black",

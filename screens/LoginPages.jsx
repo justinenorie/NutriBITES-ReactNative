@@ -6,6 +6,7 @@ import {
     SafeAreaView,
     TouchableOpacity,
     Image,
+    Alert,
 } from "react-native";
 import Colors from "../constants/Colors";
 import fonts from "../constants/Typography";
@@ -14,20 +15,32 @@ import ButtonStyle from "../components/ButtonStyle";
 import GoogleIcon from "../assets/icons/google.png";
 import logo from "../assets/HealthLogo.png";
 import Animated, { FadeInUp } from "react-native-reanimated";
+import { auth } from "../firebaseConfig";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Login({ navigation }) {
     const signUp = () => navigation.navigate("SignUp");
-    const dashboard = () => navigation.navigate("Dashboard");
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+    const handleLogin = () => {
+        signInWithEmailAndPassword(auth, username, password)
+            .then(() => {
+                Alert.alert("Success", "Login successful");
+                navigation.navigate("Dashboard");
+            })
+            .catch(() => {
+                Alert.alert("Error", "Invalid credentials");
+            });
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.loginContainer}>
                 <Animated.View
                     style={styles.title}
                     entering={FadeInUp.duration(1000)}
-                    
                 >
                     <Text style={[fonts.logoName, { fontSize: 50 }]}>
                         Nutri
@@ -63,7 +76,7 @@ export default function Login({ navigation }) {
 
                 <ButtonStyle
                     title={"SIGN IN"}
-                    onPress={dashboard}
+                    onPress={handleLogin}
                     buttonstyle={{
                         borderWidth: 1,
                         borderColor: "black",

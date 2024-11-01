@@ -9,7 +9,6 @@ import Dashboards from "../screens/Dashboard";
 import Favorites from "../screens/Favorites";
 import ScanFood from "../screens/ScanFood";
 import FoodDetails from "../screens/FoodDetails";
-import Profile from "../screens/Profile";
 import Foodpyramid from "../screens/FoodPyramid";
 
 const Stack = createNativeStackNavigator();
